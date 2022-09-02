@@ -1,0 +1,21 @@
+Middleware прописаны в проекте Django в settings.py в переменной MIDDLEWARE
+
+Пример:
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    ...
+    ]
+
+Что бы активировать свой Middleware его необходимо добавить в список переменной MIDDLEWARE.
+
+Если необходимо отключить Middleware по время запуска, можно вызвать в __init__ её класса raise MiddlewareNotUsed.
+Тогда Django удалит этот Middleware из процесса Middleware.
+(https://django.fun/docs/django/ru/4.0/topics/http/middleware/#marking-middleware-as-unused)
+
+Порядок в MIDDLEWARE имеет значение.
+До view они выполняются сверху вниз, после view наоборот.
+
+Для передачи запроса на следующий слой Middleware, необходимо вызывать get_response
+Если в Middleware замкнуть цепочку и вернуть ответ без вызова get_response, ответ уйдет клиенту. Все нижележащие слои и view не получат этого запроса.
+(https://django.fun/docs/django/ru/4.0/topics/http/middleware/#middleware-order-and-layering)

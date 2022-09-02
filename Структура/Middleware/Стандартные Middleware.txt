@@ -1,0 +1,16 @@
+django.middleware.security.SecurityMiddleware - реализует дополнительную защиту сайта от сетевых атак;
+
+django.contrib.sessions.middleware.SessionМiddleware - обрабатывает серверные сессии на низком уровне. Используется подсистемами разграничения доступа, сессий и всплывающих сообщений (приложениями django.contrib.auth, django.contrib.sessions И django.contrib.messages);
+
+django.middleware.common.CommonМiddleware - участвует в предварительной обработке запросов;
+
+django.middleware.csrf.CsrfViewMiddleware - осуществляет защиту от межсайтовых атак при обработке данных, переданных сайту НТТР-методом POST;
+
+django.contrib.auth.middleware.AuthenticationМiddleware - добавляет в объект запроса атрибут, хранящий текущего пользователя. Через этот атрибут в контроллерах и шаблонах можно выяснить, какой пользователь выполнил вход на сайт и выполнил ли вообще. Используется административным сайтом и подсистемой разграничения доступа (приложениями django.contrib.admin и django.contrib.auth);
+
+django.contrib.messages.middleware.MessageMiddleware - обрабатывает всплывающие сообщения на низком уровне. Используется административным сайтом
+и подсистемой всплывающих сообщений (приложениями django.contrib.admin и django.contrib.messages);
+
+django.middleware.clickjacking.XFrameOptionsMiddleware - реализует дополнительную защиту сайта от сетевых атак. 
+
+(Дронов В. А. - Django 3.0. Практика создания веб-сайтов на Python-БХВ-Петербург (2021) | 80стр. 3.3.4 Список зарегистрированных посредников)

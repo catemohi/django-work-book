@@ -1,0 +1,4 @@
+Для создания приложения в проекте Django применяется комманда manage.py:
+startapp <название проекта>
+Пример:
+manage.py startapp test

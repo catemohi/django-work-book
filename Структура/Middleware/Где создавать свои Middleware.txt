@@ -1,0 +1,3 @@
+Обычно расширения Middleware создают в папке приложения на уровне views.py и urls.py
+( Скриншот-1 )
+( Django Middleware | 11:30 )

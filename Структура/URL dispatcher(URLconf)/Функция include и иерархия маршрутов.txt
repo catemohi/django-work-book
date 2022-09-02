@@ -1,0 +1,26 @@
+Так как изначально Django всегда смотрит URLconf в settings.ROOT_URLCONF, маршруты принято расширять
+Создаются дополнительные URLconf в приложениях проекта и подключаются к ROOT_URLCONF с помощью функциии include().
+Всякий раз, когда Django встречает include(), он отрезает любую часть URL-адреса, совпадающую до этого момента, и отправляет оставшуюся строку во включенный URLconf для дальнейшей обработки.
+(https://django.fun/docs/django/ru/4.0/topics/http/urls/#including-other-urlconfs)
+---
+Так же можно применять функцию include() для удаления избыточности в коде используя список экземпляров path()
+Пример:
+extra_patterns = [
+    path('reports/', credit_views.report),
+    path('reports/<int:id>/', credit_views.report),
+    path('charge/', credit_views.charge),
+]
+
+urlpatterns = [
+    path('', main_views.homepage),
+    path('help/', include('apps.help.urls')),
+    path('credit/', include(extra_patterns)),
+]
+---
+Во включеннне URLconf и расширения patch передаются захваченные параметры родительский URLconf
+(https://django.fun/docs/django/ru/4.0/topics/http/urls/#captured-parameters)
+---
+Функция path() может принимать необязательный третий аргумент, который должен быть словарем дополнительных ключевых аргументов для передачи в функцию представление.
+(https://django.fun/docs/django/ru/4.0/topics/http/urls/#passing-extra-options-to-view-functions)
+Точно так же вы можете передать дополнительные параметры в include(), и каждой строке во включенном URLconf будут переданы дополнительные параметры.
+---

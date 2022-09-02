@@ -1,0 +1,24 @@
+Middleware предыдущая запускает последущую и так до view-функции. Далее они закрываются в обратном порядке.
+Middleware работаюти по принрципу рекурсии.
+---
+В статье https://nuancesprog.ru/p/14037/
+Нашел пункт с основными принципами там был обзац о том:
+Связующее программное( промежуточные Middleware в цепочке ) обеспечение обязательно реализовывает метод process_request, но никогда НЕ реализовывает методы process_response и process_view.
+
+* Надо проверить на практике работает ли process_view у нескольких Middleware в цепочке.
+---
+В статье https://nuancesprog.ru/p/14037/
+
+Так же заметил специальные методы
+process_response
+process_request
+Не понятно как их использовать в документации Django написано что они вызываются в методе __call__:
+
+Из документации Django
+https://docs.djangoproject.com/en/4.1/topics/http/middleware/#upgrading-pre-django-1-10-style-middleware
+Метод __call__():
+* Вызов self.process_request(request)(если определены).
+* Вызовы self.get_response(request)для получения ответа от более позднего промежуточного программного обеспечения и представления.
+* Вызов (если определены).self.process_response(request, response)
+* Возвращает ответ.
+---

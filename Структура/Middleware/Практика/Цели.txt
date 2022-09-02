@@ -1,0 +1,4 @@
+* Закрепить теоретические знания по middleware+
+* Проверить работу метода process_view в цепочке нескольких middleware+
+* Обработать исключение  с помощью метода process_exception+
+* Изменить context с помощью метода process_template_response+

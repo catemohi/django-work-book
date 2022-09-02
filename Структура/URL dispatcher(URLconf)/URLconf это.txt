@@ -1,0 +1,5 @@
+Что бы обработать URL и передать его во View используется модуль urls.py
+Он называется URL dispatcher или URLconf.
+URLconf представляет собой модуль python, внутри которого в последовательности, хранящийся в переменной urlpatterns
+прописана зависимость между URL и функциями Python, представлениями.
+(https://django.fun/docs/django/ru/4.0/topics/http/urls/#overview)

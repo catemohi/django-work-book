@@ -1,0 +1,9 @@
+(https://django.fun/docs/django/ru/4.0/topics/http/urls/#how-django-processes-a-request)
+Django загружает модуль URLconf из settings.ROOT_URLCONF, если URLconf не передан из middleware.
+Если URLconf передан из middleware, он будет приорететнее.
+В загруженном URLconf ищется переменная urlspatterns. 
+Django проходится по последовательности содержищийся в urlspatterns и сопоставляет его с path_info
+ДО ПЕРВОГО СОВПАВШЕГО
+Из совпавшего django.urls.path импоритруется и вызвается представление
+Представлению передаются HttpRequest, именнованные аргументы и позиционные.
+Если шаблон URL-адреса не совпадает или если на каком-либо этапе этого процесса возникает исключение, Django вызывает соответствующее представление обработки ошибок.

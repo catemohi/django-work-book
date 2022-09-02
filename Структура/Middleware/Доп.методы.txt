@@ -1,0 +1,24 @@
+(https://django.fun/docs/django/ru/4.0/topics/http/middleware/#other-middleware-hooks)
+(Дронов В. А. - Django 3.0. Практика создания веб-сайтов на Python-БХВ-Петербург (2021) | 450стр. 3.3.4 Список зарегистрированных посредников)
+
+process_view(request, view_func, view_args, view_kwargs)
+Метод который будет вызван непосредственно перед view, имеющий доступ к выбранной функции представления.
+view_func - выбранная в urls.py функция view
+view_args - позиционные аргументы переданные во view
+view_kwargs - именнованные аргументы переданные во view
+
+process_view, должен вернуть либо None, либо объект HttpResponse. 
+Если он возвращает None, Django продолжит обработку этого запроса, выполняя любое другое промежуточное ПО process_view() и, затем, соответствующее представление.
+Если он возвращает объект HttpResponse, Django не будет беспокоиться о вызове соответствующего представления; он применит промежуточное ПО ответа к этому HttpResponse и вернет результат.
+
+( https://django.fun/docs/django/ru/4.0/topics/http/middleware/#process-view )
+( Django Middleware | 18:50 )
+
+process_template_response(request, response)
+Метод который будет вызван после view, имеющий доступ к сформированному view ответу.
+process_template_response может изменить данный response, изменив response.template_name и response.context_data, или создать и вернуть совершенно новый TemplateResponse или эквивалент.
+
+Для использования этого метода ОБЯЗАТЕЛЬНО использовать класс генерации шаблона TemplateResponse
+функция render возвращающая HttpResponse, как и сам HttpResponse не подойдет.
+
+( Django Middleware | 25:20 )

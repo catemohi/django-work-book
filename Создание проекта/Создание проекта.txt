@@ -1,0 +1,4 @@
+Для создания проекта в Django применяется комманда django-admin:
+startproject <название проекта>
+Пример:
+django-admin startproject test
