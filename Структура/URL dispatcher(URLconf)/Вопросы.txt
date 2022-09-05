@@ -1,1 +1,2 @@
 https://django.fun/docs/django/ru/4.0/ref/contrib/syndication/
+Должен ли namespace заканчиваться именем приложения?
